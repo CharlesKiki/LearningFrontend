@@ -1,0 +1,70 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<!--显示中文-->
+<title>浮动布局</title>
+<style>
+	#normal
+	{
+		width:300px;
+		height:200px;
+		background:#00ff00;
+	}
+	#left-side
+	{
+		width:300px;
+		height:200px;
+		background:green;
+		float:left;	<!--注意这个float属性，此时相当于两层文字，可以有内容在下方-->
+	}
+	#right-side
+	{
+		width:300px;
+		height:200px;
+		background:blue;
+		float:right;
+		<!--float CSS属性-->
+		<!--让两个div占同一行的方法是使用float-->
+	}
+	#another-left-sideright-side
+	{
+		width:1000px;
+		height:1000px;
+		background:blue;
+		<!-- clear:left; -->
+		<!--background CSS属性-->
+		float:left;
+		<!-- 为什么这个区块不显示？ -->
+		margin: 100px 0 0 200px;
+		<!-- margin的特性？ -->
+	}
+	#common
+	{
+		width:300px;
+		height:200px;
+		background:orange;
+		<!-- float:none; -->
+		<!-- 注意这个特性，两边的float相当于不是div了，此时div独占这行 -->
+		clear:both;
+		margin: 0 auto; 
+		<!--第一个表示top和bottom，第二个表示left和right，表示上下边界为0，左右则根据宽度自适应相同值（即居中-->
+		
+		<!--clear CSS效果，common本来在左上角，但是会强制和其他浮动元素隔开-->
+		<!--清除左浮动元素-->
+	}
+	<!--div标签特性会自动占用整个一行的内容-->
+</style>
+</head>
+
+<body>
+	<div id=normal>这是一个普通的div块</div>
+	<div id=left-side>左边的范围</div>
+	<!--<div> 是一个块级元素-->
+	<div id=another-left-side>另一个左边的范围</div>
+	<!-- 这个地方造成了行不对齐 -->
+	<div id=right-side>右边的范围</div>
+	<!--注意ID本身不会对tag造成影响-->
+	<div id=common>测试clear属性</div>
+</body>
+</html>
