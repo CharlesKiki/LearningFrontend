@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>ButtonEvent</title>
+<script type="text/javascript">
+  //What eber you click any of the body object you will Trigger an event
+function whichButton(event)
+{
+  //event is a object ,usually it used to show what user did
+var btnNum = event.button;
+if (btnNum==2)
+  {
+  alert("您点击了鼠标右键！")
+  }
+else if(btnNum==0)
+  {
+  alert("您点击了鼠标左键！")
+  }
+else if(btnNum==1)
+  {
+  alert("您点击了鼠标中键！");
+  }
+else
+  {
+  alert("您点击了" + btnNum+ "号键，我不能确定它的名称。");
+  }
+}
+</script>
+</head>
+
+<body onmousedown="whichButton(event)">
+<p>请在文档,实际上，你能点击触发event事件的地方只有body内的元素。在文字上点击鼠标。一个消息框会提示出您点击了哪个鼠标按键。</p>
+</body>
+
+</html>
