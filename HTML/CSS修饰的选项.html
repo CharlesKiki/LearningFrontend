@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style>
+		.container
+		{
+			width:100%;
+			text-align:center;          
+		}
+		ul
+			{
+				<!-- ul列表也是一个盒子模型 -->
+				list-style-type:none;
+				<!-- 这些列表用怎么样的开头样式 -->
+				padding:0;
+				margin: 0 auto;
+				display:inline-block;
+			}
+		a:link,a:visited
+			{
+				<!-- 三种状态可以进行修饰 -->
+				display:block;
+				<!-- 块从上到下的依次排开，不重叠 -->
+				font-weight:bold;
+				<!-- 设置文本的粗细，类似h1 -->
+				color:#FFFFFF;
+				background-color:#bebebe;
+				width:120px;
+				text-align:center;
+				<!-- h1是块级元素，可以调整其中文字的位置 -->
+				padding:4px;
+				<!-- CSS盒子模型 真实占有 文本占有 会挤开其他块 -->
+				text-decoration:none;
+				<!-- 针对文字的修饰 是否带有下划线 -->
+				text-transform:uppercase;
+				<!-- 文字全部大写处理 -->
+			}
+		a:hover,a:active
+			{
+				background-color:#cc0000;
+			}
+		</style>
+	<title>Navigation Bar Using CSS</title>
+</head>
+
+<body>
+	<div class='container'>
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#news">News</a></li>
+			<li><a href="#contact">Contact</a></li>
+			<li><a href="#about">About</a></li>
+		</ul>
+	</div>
+</body>
+</html>

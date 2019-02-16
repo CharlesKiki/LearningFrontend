@@ -1,0 +1,57 @@
+<html>
+	<head>
+    	<title></title>
+    </head>
+    <body>
+    	<h1 style="color:#39F;">form controls</h1>
+        <form>
+        	<table border="0">
+        		<tr>
+            		<th colspan="3" style="color:#F00;">ADDING TEXT:
+              		</th>
+            	</tr>
+            	<tr>
+            		<td>Text input<br>(single-line)</td>
+                    <td>Password input</td>
+                    <td>Text area(multi-line)</td>
+                </tr>
+                <tr>
+                	<td><input type="text" value="user"></td>
+                    <td><input type="password" name="pwd" maxlength="8"></td>
+                    <td><textarea name="comments" cols="20" rows="4"></textarea></td>   
+            	</tr>
+                <tr>
+                	<th colspan="3" style="color:#F00;">MAKING CHOICES:</th>
+                </tr>
+                <tr>
+                	<td>Radio buttons</td>
+                    <td>Checkboxes</td>
+                    <td>Drop-dowm boxes</td>
+                </tr>
+                <tr>
+                	<td><input type="radio" name="genre" value="rock" checked="checked" /> Rock 			
+                    	<input type="radio" name="genre"   value="pop"  /> Pop 
+                        <input type="radio" name="genre"   value="jazz" /> Jazz</td>
+                    <td><input type="checkbox" name="service" value="iTunes" checked="checked"/> iTunes 
+                    	<input type="checkbox" name="service" value="Last.fm" /> Last.fm
+                    	<input type="checkbox" name="service" value="Spotify" /> Spotify</td>
+                    <td><select name="devices">
+                    		<option value="iPod" selected="selected">iPod</option>
+                            <option value="radio">Radio</option>
+                            <option value="PC">Computer</option></select></td>
+                </tr>
+                <tr>
+                	<th colspan="3" style="color:#F00">SUB,ITTING FORMS:</th>
+                </tr>
+                <tr>
+                	<td>submit buttons</td>
+                    <td>lmage buttins</td>
+                    <td>File upload</td>
+                </tr>
+                <tr>
+                	<td><input type="submit"></td>
+                    <td><input type="submit"></td>
+                    <td><input type="text" name="email" />
+                    	<input type="submit" value="Subscribe"/></td>
+           </table>
+       </form>

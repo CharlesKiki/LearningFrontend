@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="utf-8"> 
+	</head>
+<body>
+	<div id="container" style="width:500px">
+	<!-- 注意，containerid仅仅是名称 -->
+		<div id="header" style="background-color:#FFA500;">
+			<h1 style="margin-bottom:0;">主要标题</h1>
+			<!-- margin-bottom:0;意味着下一个块和自身的距离，可以是负数，重叠 -->
+		</div>
+		<div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+			<b>菜单</b><br>
+			HTML<br>
+			CSS<br>
+			JavaScript
+		</div>
+		<div id="content" style="background-color:#EEEEEE;height:200px;width:200px;float:left;">
+			内容
+		</div>
+		<div id="content" style="background-color:#FFFFFF;height:200px;width:200px;float:left;">
+			内容2
+		</div>
+		<!-- float的核心意义在于给一行内插入类似div的结构 -->
+		<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+			版权 © 
+		</div>
+	</div>
+	<!-- div将内部div进行分块 -->
+</body>
+</html>
