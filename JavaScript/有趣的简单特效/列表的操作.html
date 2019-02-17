@@ -1,0 +1,26 @@
+<html>
+<head>
+<script type="text/javascript">
+function getIndex()
+  {
+  var x=document.getElementById("mySelect")
+  alert(x.selectedIndex)
+  }
+</script>
+</head>
+<body>
+
+<form>
+选择自己喜欢的水果：
+<select id="mySelect">
+  <option>苹果</option>
+  <option>香蕉</option>
+  <option>橘子</option>
+  <option>梨</option>
+</select>
+<br /><br />
+<input type="button" onclick="getIndex()"
+value="弹出选中项">
+</form>
+</body>
+</html>

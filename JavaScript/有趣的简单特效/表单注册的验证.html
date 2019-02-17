@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>表单注册和验证</title>
+<form name="form1" id="form1" method="post" action="reg2.jsp">
+<table  border=1 align=center width=350>
+<TR align=middle><Th colSpan=2 height=24>新用户注册</TH></TR>
+<TR>
+<TD width="40%" >
+<B>用&nbsp户&nbsp;名</B>：</TD>
+<TD width="60%" ><INPUT maxLength="10" size=30  name="uid" type="text"></TD>
+</TR>
+<TR>
+<TD ><B>性&nbsp;&nbsp;&nbsp;&nbsp;别</B>：</TD>
+<TD><INPUT type=radio CHECKED value="boy" name="gender">
+男孩 
+<INPUT type=radio value="girl"  name="gender">
+女孩</TD>
+</TR>
+<tr>
+<TD ><B>密&nbsp;&nbsp;&nbsp;&nbsp;码</B>：
+</TD>
+<td><input name="psw1"  type="password" size=32></td>
+<tr>
+<TD><B>确认密码</B>：</TD>
+<td ><input name="psw2" type="password" size=32></td>
+<TR>
+<TD ><B>密码问题</B>：</TD>
+<TD>
+<INPUT type=text size=30 name="question" type="text">
+</TD></TR>
+<TR>
+<TD ><B>问题答案</B>：</TD>
+<TD>
+<INPUT type=text size=30 name="answer" type="text">
+</TD></TR>
+<TR>
+<TD ><B>Email</B>：</TD>
+<TD >
+<INPUT maxLength=50 size=30 name="email" type="text"></TD>
+</TR>
+<tr>
+<TD ><B>联系电话</B>：</TD>
+<TD>
+<INPUT maxLength=50 size=30 name="tel" type="text"></TD></tr>
+      <tr>
+        <td><b>职&nbsp;&nbsp;&nbsp;&nbsp;业</b>:</td>
+        <td><select name="career" class="input1" />
+        <option value="student" selected="selected">学生</option>  
+ <option value="worker" >工人</option>
+ <option value="teacher" >老师</option>
+ <option value="famer" >农民</option>
+ <option value="business" >商人</option>
+      </td>
+      </tr><tr>
+<td></td><td><input type=submit value="注 册" name=Submit onClick="return check()">      
+<input type=reset value="清 除" name=Submit2>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</head>
+<body >
+<form name="form1" id="form1" method="post" action="reg2.jsp">
+<B>用&nbsp户&nbsp;名</B>：
+<INPUT maxLength="10" size=30  name="uid" type="text">
+<B>性&nbsp;&nbsp;&nbsp;&nbsp;别</B>：
+<INPUT type=radio CHECKED value="boy" name="gender">
+男孩 
+<INPUT type=radio value="girl"  name="gender">
+女孩
+<B>密&nbsp;&nbsp;&nbsp;&nbsp;码</B>：
+<input name="psw1"  type="password" size=32>
+<tr>
+<B>确认密码</B>：
+<td ><input name="psw2" type="password" size=32>
+<B>密码问题</B>：
+<INPUT type=text size=30 name="question" type="text">
+<B>问题答案</B>：
+<INPUT type=text size=30 name="answer" type="text">
+<B>Email</B>：
+<INPUT maxLength=50 size=30 name="email" type="text">
+<B>联系电话</B>：
+<INPUT maxLength=50 size=30 name="tel" type="text">
+        <b>职&nbsp;&nbsp;&nbsp;&nbsp;业</b>:
+        <select name="career" class="input1" />
+        <option value="student" selected="selected">学生</option>  
+ <option value="worker" >工人</option>
+ <option value="teacher" >老师</option>
+ <option value="famer" >农民</option>
+ <option value="business" >商人</option>
+<input type=submit value="注 册" name=Submit onClick="return check()">      
+<input type=reset value="清 除" name=Submit2>
+</form>
+</body>
+</html>

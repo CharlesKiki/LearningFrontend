@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>显示页面的所有链接</title>
+<script language="JavaScript1.2">
+<!--
+function extractlinks(){
+//var links=document.all.tags("A")
+var links=document.links;
+var total=links.length
+var win2=window.open("","","menubar,scrollbars,toolbar")
+win2.document.write("<font size='2'>一共有"+total+"个连接</font><br>")
+for (i=0;i<total;i++){
+win2.document.write("<font size='2'>"+links[i].outerHTML+"</font><br>")
+}
+}
+//-->
+</script>
+
+</head>
+
+<body>
+<input type="button" onClick="extractlinks()" value="显示所有的连接">
+<p>　</p>
+<p><a target="_blank" href="http://www.sohu.com/">搜狐</a></p>
+<p><a target="_blank" href="http://www.sina.com/">新浪</a></p>
+<p><a target="_blank" href="http://www.163.com/">163</a></p>
+<p>连接1</p>
+<p>连接1</p>
+<p>连接1</p>
+<p>连接1</p>
+</body>
+</html>

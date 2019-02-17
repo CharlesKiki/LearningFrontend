@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>向上滚动的菜单</title>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<script language=javascript>
+<!--
+  var index = 9
+  link = new Array(8);
+  link[0] ='time1.htm'
+  link[1] ='time2.htm'
+  link[2] ='time3.htm'
+  link[3] ='time1.htm'
+  link[4] ='time2.htm'
+  link[5] ='time3.htm'
+  link[6] ='time1.htm'
+  link[7] ='time2.htm'
+  link[8] ='time3.htm'
+  text = new Array(8);
+  text[0] ='首页'
+  text[1] ='产品天地'
+  text[2] ='关于我们'
+  text[3] ='资讯动态'
+  text[4] ='服务支持'
+  text[5] ='会员中心'
+  text[6] ='网上商城'
+  text[7] ='官方微博'
+  text[8] ='企业文化'
+  document.write ("<marquee scrollamount='1' scrolldelay='100' direction= 'up' width='150' height='150'>");
+  for (i=0;i<index;i++)
+  {
+    document.write ("&nbsp;<img src='dian3.gif' width='12' height='12'><a href="+link[i]+" target='_blank'>");
+    document.write (text[i] + "</A><br>");
+  }
+  document.write ("</marquee>")
+// --></script>
+
+</body></html>

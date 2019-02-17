@@ -1,0 +1,72 @@
+<html> 
+<head> 
+<title>动态定位</title>
+<style type="text/css"> 
+#d1 { 
+position: absolute; 
+width: 300px; 
+height: 300px; 
+visibility: visible; 
+color: #fff; 
+background: #555; 
+} 
+#d2 { 
+position: absolute; 
+width: 300px; 
+height: 300px; 
+visibility: visible; 
+color: #fff; 
+background: red; 
+} 
+#d3 { 
+position: absolute; 
+width: 150px; 
+height: 150px; 
+visibility: visible; 
+color: #fff; 
+background:blue; 
+} 
+</style> 
+
+<script> 
+var d1, d2, d3, w, h; 
+window.onload = function() { 
+d1 = document.getElementById('d1'); 
+d2 = document.getElementById('d2'); 
+d3 = document.getElementById('d3'); 
+w = window.innerWidth; 
+h = window.innerHeight; 
+} 
+
+function divMoveTo(d, x, y) { 
+d.style.pixelLeft = x; 
+d.style.pixelTop = y; 
+} 
+function divMoveBy(d, dx, dy) { 
+d.style.pixelLeft += dx; 
+d.style.pixelTop += dy; 
+} 
+</script> 
+</head> 
+<body id="bodyId"> 
+<form name="form1"> 
+<h3>移动定位</h3> 
+<p> 
+<input type="button" value="移动d2" onclick="divMoveBy(d2,100,100)"><br> 
+<input type="button" value="移动d3到d2(0,0)" onclick="divMoveTo(d3,0,0)"><br> 
+<input type="button" value="移动d3到d2(75,75)" onclick="divMoveTo(d3,75,75)"><br> 
+</p> 
+</form> 
+<div id="d1"> 
+<b>d1</b> 
+</div> 
+<div id="d2"> 
+<b>d2</b><br><br> 
+d2包含d3 
+<div id="d3"> 
+<b>d3</b><br><br> 
+d3是d2的子层 
+</div> 
+</div> 
+</body> 
+</html> 

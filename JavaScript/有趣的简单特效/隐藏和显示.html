@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>隐藏和显示</title>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function toggle(targetid){
+     if (document.getElementById){
+         target=document.getElementById(targetid);
+             if (target.style.display=="block"){
+                 target.style.display="none";
+             } else {
+                 target.style.display="block";
+             }
+     }
+}
+-->
+</script>
+<style type="text/css">
+.div{ border:1px #06F solid;height:50px;width:150px;display:none;}
+a {width:100px; display:block}
+</style>
+</head>
+
+<body>
+<a href="#" onclick="toggle('div1')">显示/隐藏</a>
+<div id="div1" class="div">
+<img src=11.jpg>
+<p>市场价：390元</p>
+<p>购买价：190元</p>
+</div>
+</body>
+</html> 

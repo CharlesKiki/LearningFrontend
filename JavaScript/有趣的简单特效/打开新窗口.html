@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>打开新窗口</title>
+</head>
+<body>
+<script language="JavaScript">
+<!--
+function setWindowStatus()
+{
+window.status="Window对象的简单应用案例，这里的文本是由status属性设置的。";
+}
+function NewWindow() {
+   msg=open("","DisplayWindow","toolbar=no,directories=no,menubar=no");
+   msg.document.write("<HEAD><TITLE>新窗口</TITLE></HEAD>");
+   msg.document.write("<CENTER><h2>这是由Window对象的Open方法所打开的新窗口!</h2></CENTER>");
+}
+-->
+</script>
+<body onload="setWindowStatus()">
+<input type="button" name="Button1" value="打开新窗口" onclick="NewWindow()">
+</body>
+</html>

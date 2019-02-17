@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript">
+function check()
+  {
+  document.getElementById("check1").checked=true
+  }
+function uncheck()
+  {
+  document.getElementById("check1").checked=false
+  }
+function setFocus()
+  {
+  document.getElementById('male').focus()
+  }
+function loseFocus()
+  {
+  document.getElementById('male').blur()
+
+  }
+</script>
+</head>
+<body>
+<form>
+男: <input id="male" type="radio" name="Sex" value="男" />
+女: <input id="female" type="radio" name="Sex" value="女" /><br>
+<input type="button" onclick="setFocus()" value="设置焦点" />
+<input type="button" onclick="loseFocus()" value="失去焦点" />
+
+<br><hr>
+<input type="checkbox" id="check1" />
+<input type="button" onclick="check()" value="选中复选框" />
+<input type="button" onclick="uncheck()" value="不选中复选框" />
+</form>
+</body>
+</html>
