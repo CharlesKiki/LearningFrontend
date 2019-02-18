@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE>闪烁图片</TITLE>
+</HEAD>
+<BODY ONLOAD="soccerOnload()" topmargin="0">
+<DIV ID="soccer" STYLE="position:absolute; left:150; top:0">
+<a href="">
+<IMG SRC="01.jpg" border="0"></a>
+</DIV>
+<SCRIPT LANGUAGE="JavaScript">
+var msecs = 500; //改变时间得到不同的闪烁间隔；
+var counter = 0; 
+function soccerOnload() {
+setTimeout("blink()", msecs);
+}
+function blink() {
+soccer.style.visibility =
+(soccer.style.visibility == "hidden") ? "visible" : "hidden";
+counter +=1;
+setTimeout("blink()", msecs);
+}
+</SCRIPT>
+</BODY>
+</HTML>
