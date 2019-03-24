@@ -1,9 +1,9 @@
 <?php
 /**
  * 6、路由基类
- * User: Administrator
- * Date: 2018/2/12
- * Time: 13:52
+ * User: 
+ * Date: 
+ * Time: 
  */
 
 namespace core\lib;

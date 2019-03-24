@@ -1,22 +1,21 @@
 <?php
 /**
- * 核心文件
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2018/2/12
- * Time: 13:44
+ * 核心文件 初始化程序
+ * 
+ * 
+ * 
+ * 
  */
 
 namespace core;
 
 class Init{
 
-    public static $classMap = [];    //用来储存已经加载好的类
+    public static $classMap = [];       //用来储存已经加载好的类
     public $assign;
 
     public static function run(){
-       $route = new \core\lib\route();  //5、引入路由类
-        //o($route);
+       $route = new \core\lib\route();  //引入路由类
 
        //12、启动日志类
         \core\lib\log::init();
