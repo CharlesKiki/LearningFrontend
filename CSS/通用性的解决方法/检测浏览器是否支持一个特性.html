@@ -1,0 +1,34 @@
+<head>
+    <title></title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        //检测一个属性是否支持
+        function testProperty(property) {
+            var root = document.documentElement;
+
+            if (property in root.style) {
+                root.classList.add(property.ToLowerCase())
+                return ture;
+            }
+            root.classList.add('no-' + property.ToLowerCase());
+            return false;
+        }
+        //检测一个属性值是否支持
+        function testValue(id, value, property){
+            var dummy = document.createElement('p');
+
+            if (dummy.style[property]){
+                root.classList.add(id);
+                return ture;
+            }
+
+            root.classList.add('no-' + id);
+            return false;
+        }
+    </script>
+</body>
+
+</html>
