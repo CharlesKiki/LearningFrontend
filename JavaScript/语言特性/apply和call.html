@@ -1,0 +1,49 @@
+<html>
+<body>
+    <script type="text/javascript">
+        function foo() {
+            alert('x');
+        }
+        //foo()
+        //这是调用函数的方法
+        //alert(foo.toString());
+        //这会让整个方法的代码以字符串来输出。
+
+        //变量x就是在这个全局对象中定义的
+        var x = 10;
+        //函数f()是全局函数
+        function f() {
+            //this指向全局对象，这个全局对象可以访问全局变量x
+            alert(this.x);
+        }
+        //f();
+
+        var y = 100;
+        //这是一种给变量o赋予属性的方法
+        var o = { y: 15 };
+        function f() {
+            alert(this.y);
+        }
+        //f();
+        //call()方法会用它的第一个参数作为f函数的this指针。
+        //也就是说，我们会告诉运行时，f函数中的this指向的是哪个对象。
+        //f.call(o);
+
+        var number = 10;
+        var oo = { number: 15 };
+        function f(message) {
+            alert(message);
+            //这里根据this的不同会导致跳转，打印谁的x属性是不确定的
+            alert(this.number);
+        }
+        f('invoking f');
+        //结果： invoking f 10
+        f.apply(oo, ['invoking f through apply']);
+        //结果： invoking f through apply 15
+        //注意： apply方法依然会将数组的参数传递给函数，
+        //改变的只是第一个参数指定的this
+    </script>
+
+</body>
+
+</html>
