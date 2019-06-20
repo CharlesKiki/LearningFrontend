@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>html本地存储</title>
+        <script>
+            function CheckLocalStorage() {
+                if (window.localStorage) {
+                    console.log("This browser supports localStorage");
+                } else {
+                    console.log("This browser does NOT support localStorage");
+                }
+            }
+            CheckLocalStorage();
+
+            var storage = window.localStorage;
+            storage.setItem("学号","123456")
+            //打印所有的本地存储键值对
+            function showStorage() {
+                for (var i = 0; i < storage.length; i++) {
+                    //key(i)获得相应的键，再用getItem()方法获得对应的值
+                    console.log(storage.key(i) + " : " + storage.getItem(storage.key(i)));
+                }
+            }
+            showStorage()
+        </script>
+    </head>
+    <body></body>
+</html>
