@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Module Pattern 模块化模式</title>
+
+</head>
+
+<body>
+
+</body>
+
+<!-- 对象字面量表示法 -->
+<script>
+    /* 该设计模式也就是直接声明一个对象并显式的调用对象的方法 */
+    var myModule = {
+        myProperty: "someValue",
+        myConfig: {
+            useCaching: true,
+            language: "en"
+        },
+        // a very basic method
+        myMethod: function () {
+            console.log("Where in the world is Paul Irish today?");
+        },
+    };
+    // Outputs: Where in the world is Paul Irish today?
+    myModule.myMethod();
+</script>
+
+<!-- Module(模块)模式  私有–IIFE(立即执行函数表达式)模拟-->
+<script>
+    var testModule = (function () {
+        var counter = 0;
+        return {
+            incrementCounter: function () {
+                return counter++;
+            },
+            resetCounter: function () {
+                console.log("counter value prior to reset: " + counter);
+                counter = 0;
+            }
+        };
+    })();
+    // Usage:
+
+    testModule.incrementCounter();
+    testModule.resetCounter(); //1
+</script>
+
+<!-- Module(模块)模式变化–混入 -->
+<script>
+    var myModule = (function (jQ, _) {
+        function privateMethod1() {
+            jQ(".container").html("test");
+        }
+        function privateMethod2() {
+            console.log(_.min([10, 5, 100, 2, 1000]));
+        }
+        return {
+            publicMethod: function () {
+                privateMethod1();
+            }
+        };
+    }(jQuery, _));
+
+    myModule.publicMethod();
+</script>
+
+<!-- Module(模块)模式变化–引出 -->
+<script>
+    var myModule = (function () {
+        // Module object
+        var module = {},
+            privateVariable = "Hello World";
+        function privateMethod() {
+            // ...
+        }
+        module.publicProperty = "Foobar";
+        module.publicMethod = function () {
+            console.log(privateVariable);
+        };
+
+        return module;
+    }());
+</script>
+
+</html>
