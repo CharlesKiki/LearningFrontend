@@ -1,0 +1,59 @@
+@color:red;
+
+h1{
+    color:@color;
+    
+}
+h2{
+    color:@color;
+}
+
+.rounded-corners (@radius: 3px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+#div1{
+    .rounded-corners;
+}
+#div2{
+    .rounded-corners(10px);
+}
+#div1,#div2{
+    border:1px solid #333;
+    margin:10px;
+    height:40px;
+    line-height:40px;
+}
+#inner{
+    h3{
+    color:@color;
+    }
+    p{
+    color:green;
+        a{
+        text-decoration: none;
+            &:hover{
+              color:@color;
+            }
+        }
+    }
+}
+
+@the-border:1px;
+@base-color:#111;
+@black: #ff0000;
+
+.func1{
+color:@base-color*3;
+border:@the-border*5 solid @base-color*3;
+border-radius: @the-border*10;
+height:40px;
+    
+}
+
+.func2{
+    color:@base-color + #003300;
+    border:10px solid desaturate(@black, 50%);
+    margin:10px;
+}

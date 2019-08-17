@@ -1,4 +1,6 @@
 # VScode配置文件
 .vscode/
+# npm下载的包
+node_modules/
 
 
