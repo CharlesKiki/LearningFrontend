@@ -1,0 +1,60 @@
+//接口类，用来创建接口
+var Interface = function (name, motheds) {
+    if (agruments.length != 2) {
+        throw new Error("Interface constructor called with " + arguments.length + "arguments,but expected exactly 2");
+    }
+    this.name = name;
+    this.methods = [];
+    for (var i = 0; i < motheds.length; i++) {
+        if (typeof motheds[i] !== 'string') {
+            throw new Error('Interface constructor expects mothed names to be' + 'passes in as a string');
+        }
+        this.methods.push(motheds[i]);
+    }
+}
+Interface.prototype.ensureImplements = function (objs) {
+    if (agruments.length != 1) {
+        throw new Error("Interface constructor called with " + arguments.length + "arguments,but expected exactly 1")
+    }
+    for (var i = 0; i < objs.length; i++) {
+        var obj = objs[i];
+        for (var j = 0; j < this.motheds.length; j++) {
+            var mothed = this.methods[j];
+            if (!obj[mothed] || !typeof obj[mothed] !== 'function') {
+                throw new Error('Function Interface.ensureImplements:implements interface' + this.name + ',obj.mothed' + mothed + 'was not found');
+            }
+        }
+    }
+}
+//创建接口
+var People = new Interface('People', ['createHead', 'createBody']);
+//子类
+var Woman = function (name) {
+    this.name = name;
+    this.implementsInterfaces = ['People'];
+}
+Woman.prototype.showName = function () {
+    alert(this.name);
+}
+Woman.prototype.createBody = function () { //实现必要的方法
+    alert("女人身体已经创建好");
+}
+Woman.prototype.createHead = function () {
+    alert("女人头部已经创建好");
+}
+//子类
+var Man = function (name) {
+    this.name = name;
+    this.implementsInterfaces = ['People'];
+}
+Man.prototype.showName = function () {
+    alert(this.name);
+}
+Man.prototype.createBody = function () { //实现必要的方法
+    alert("男人身体已经创建好");
+}
+Man.prototype.createHead = function () {
+    alert("男人头部已经创建好");
+}
+//判断是否实现
+Poeple.ensureImplements(['Woman', 'Man']);

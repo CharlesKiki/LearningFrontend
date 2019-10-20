@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>闭包的意图</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+    //没有参数传入的闭包
+    var Example_Closure = function() {
+        var cnt = (function () {
+            var i = 0;
+            return function () {
+                alert(i);
+                i++;
+            }
+        })();
+        //什么好处呢？这样子可以让外部的操作无法直接访问内部的变量i
+        //但是这样的描述仍然不够明显，这样的好处也可以说是一个高阶函数，执行它以后会自动的返回一些东西
+        cnt();//0
+        cnt();//1
+        cnt();//2
+        cnt();//3
+    }
+    //Example_Closure();
+
+    //带有参数传入的闭包
+    var Example_Closure_2 = function(){
+        var cnt = (function (num) {
+            return function () {
+                alert(num);
+                num++;
+            }
+        })(5);
+        cnt();//5
+        cnt();//6
+        cnt();//7
+        //当然还可以调用时传参
+        var cnt = (function () {
+            var i = 0;
+            return function (num) {
+                num += i;
+                alert(num);
+                i++;
+            }
+        })();
+        cnt(1);//1
+        cnt(2);//3
+        cnt(3);//5
+    }
+    Example_Closure_2();
+
+    </script>
+
+</body>
+
+</html>
