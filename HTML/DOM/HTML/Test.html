@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 设定解析字符集 -->
+    <meta charset="utf-8">
+    <title>Javascript和HTML</title>
+    <!-- Javascript可以写在head标签中 -->
+</head>
+
+<body>
+    <p>Javascript可以直接写入HTML中，被浏览器加载，那么Js可以如何和HTML交互呢？</p>
+    <!-- JavaScript：直接写入 HTML 输出流 -->
+    <script>
+        document.write("<h>这是一个标题标签对</h>");
+        document.write("<p>这是一个段落。</p>");
+    </script>
+    <p>document.write()写入的字符串可以理解为会成为HTML的源码被加载。</p>
+    <p>document.write()会在HTML的输出流中覆盖整个文档的dom树结构，这种方法用的较少。</p>
+
+
+    <!-- JavaScript：对事件的反应 -->
+    <button type="button" onclick="alert('欢迎!')">点我!</button>
+    <p>alert()是JavaScript函数，并不常用，但它对于代码测试非常方便。</p>
+
+
+    <!-- JavaScript：改变 HTML 内容 -->
+    <p id="demo">JavaScript 能改变 HTML 元素的内容。</p>
+    <script>
+        function myFunction() {
+            x = document.getElementById("demo"); // 找到元素
+            x.innerHTML = "Hello JavaScript!"; // 改变内容
+        }
+    </script>
+    <button type="button" onclick="myFunction()">点击这里</button>
+    <p>button可以使用onclick属性绑定一个JS方法，即鼠标点击时触发</p>
+    <P>onclick是HTML标准</P>
+
+    <!-- JavaScript 能改变 HTML 元素的样式 -->
+    <p id="demo">
+        JavaScript 能改变 HTML 元素的样式。
+    </p>
+    <script>
+        function myFunction() {
+            x = document.getElementById("demo") // 找到元素
+            x.style.color = "#ff0000"; // 改变样式
+        }
+    </script>
+    <button type="button" onclick="myFunction()">点击这里</button>
+
+</body>
+
+</html>

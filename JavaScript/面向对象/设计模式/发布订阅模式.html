@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>事件驱动和观察者模式</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //注册器 用来让订阅者可以接收订阅
+        var pubsub = {};    //type array
+
+        //注意这个明显的特征，闭包可以访问外部变量，但是它无法被外部所访问
+        (function (q) {
+            var topics = {},    //存放所有订阅者
+                subUid = -1;    //订阅者的ID?
+            //发布 参数1 发布的目标主题  参数2 具体信息
+            q.publish = function (topic, args) {
+                //检查这个订阅主题是否存在
+                if (!topics[topic]) {
+                    return false;
+                }
+                //目标订阅者的人数？
+                var subscribers = topics[topic],
+                    len = subscribers ? subscribers.length : 0;
+                //逐个便利该主题下的所有订阅者，向他们传送主题和内容信息
+                while (len--) {
+                    //在这里实际上直接的对订阅者进行调用了
+                    subscribers[len].func(topic, args);
+                }
+
+                return this;
+            };
+            //订阅 
+            q.subscribe = function (topic, func) {
+                //检查当前的主题是否存在，如果不存在则开辟这个主题，func参数是订阅者
+                if (!topics[topic]) {
+                    topics[topic] = [];
+                }
+                //订阅者ID获取 变量为Token 
+                var token = (++subUid).toString();
+                //向该主题中继续添加人数 
+                //topic实际上是一个Array对象 下表为0 1 2 3 4 5……
+                topics[topic].push({
+                    token: token,
+                    //目标对象 订阅者的对象指针已经被得到了
+                    func: func
+                });
+                return token;
+            };
+            //取消订阅
+            q.unsubscribe = function (token) {
+                for (var m in topics) {
+                    if (topics[m]) {
+                        for (var i = 0, j = topics[m].length; i < j; i++) {
+                            if (topics[m][i].token === token) {
+                                topics[m].splice(i, 1);
+                                return token;
+                            }
+                        }
+                    }
+                }
+                return this;
+            };
+            /*
+                注意这个地方，非常的有意思，实际上(fucntion（val_1))(val_2),就是在向一个方法中填充参数
+            */
+        }(pubsub));
+
+
+        //测试
+        //消息记录器  用来打印发生了什么事情 主题被发布了 以及什么数据 实际上这也是一个订阅者
+        var messageLogger = function (topics, data) {
+            console.log("Logging: " + topics + ": " + data);
+        };
+        //进行订阅的绑定过程 将订阅者绑定到发布者要发布的列表中
+        var subscription = pubsub.subscribe("inbox/newMessage", messageLogger);
+
+        //向指定的Topic主题中发送信息
+        pubsub.publish("inbox/newMessage", "hello world!");
+        // or
+        pubsub.publish("inbox/newMessage", ["test", "a", "b", "c"]);
+        // or
+        pubsub.publish("inbox/newMessage", {
+            sender: "hello@google.com",
+            body: "Hey again!"
+        });
+
+
+        /*
+            一个更加简单的思路
+            
+            Puber //发布者
+
+            PuberFunction() //发布者的实现
+            
+            Suber //订阅者
+            
+            Puber.Suber //发布者记录订阅者信息
+
+            Puber.Publish() //发布者开始发布信息
+
+            关键的思路是，有什么Topic和Args发布内容
+            在Puber中构造一个Topic的Array，在每个Topic中加入订阅的订阅者
+            当出现发布事件的时候，Puber会直接或者间接的向Suber发送信息
+
+        */
+    </script>
+
+</body>
+
+</html>

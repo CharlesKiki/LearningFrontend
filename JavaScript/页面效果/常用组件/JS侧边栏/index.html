@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JS弹出动画侧边栏</title>
+	<style type="text/css">
+	#sidebar{
+	  width:150px;
+	  height:200px;
+	  background:#999999;
+	  position:absolute;
+	  left:-150px;}
+	/* 全局的Span元素修饰 */
+	span{
+	  width:20px;
+	  height:70px;
+	  line-height:23px;
+	  background:#09C;
+	  position:absolute;
+	  right:-20px;
+	  top:70px;}
+	</style>
+	<script>
+	/*
+		当HTML开始加载JS时
+	*/
+		window.onload=function(){
+			//获取目标Div对象
+		  	var odiv=document.getElementById('sidebar');
+			//事件：当鼠标在div上方时
+		  	odiv.onmouseover=function ()
+			 {
+				/*
+					该方法用修改CSS属性的方法实现动画效果
+				*/
+				//第一个参数为div，left属性的目标值，第二个为 每次移动多少像素
+				startmove(0,10);
+			}
+			odiv.onmouseout=function()
+			{
+				//动画效果
+				startmove(-150,-10);
+			}
+		}//end of window.onload=function()
+
+		//计时器
+		var timer=null;
+		function startmove(target,speed)
+		{
+			var odiv=document.getElementById('sidebar');
+			clearInterval(timer);
+
+			//计时器
+			timer=setInterval(function (){
+				if(odiv.offsetLeft==target){
+					clearInterval(timer);
+			  	}
+			  	else{
+						odiv.style.left=odiv.offsetLeft+speed+'px';
+					}
+			},30)
+		}//end of startmove(target,speed)
+	</script>
+</head>
+
+<body>
+	<div id="sidebar">
+		<span>侧边栏</span>
+	</div>
+</body>
+</html>

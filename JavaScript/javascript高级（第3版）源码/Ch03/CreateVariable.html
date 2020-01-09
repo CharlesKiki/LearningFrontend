@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 设定字符集 -->
+    <meta charset="utf-8">
+    <title>在这里填写标题</title>
+    <!-- Javascript代码部分 -- 处于HEAD标签之中 -->
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <!-- Javascript代码部分 -- 处于BODY标签之中 -->
+    <script>
+
+        //Js中的变量是松散类型的，这意味着一个变量仅仅是
+        //保存一个值的占位符 
+        //未经初始化的变量将会获得undefined值
+        var undefinedExample;
+
+        //var定义的变量会成为该作用域中的局部变量
+        //在JS中一个方法的执行有多种方法
+        function TestOne() {
+            var localVariable = "Hi,I am localVariable";
+        }
+        //朴素的执行方法
+        TestOne();
+        /*
+            函数中的变量将会在函数运行结束后
+            被释放
+            错误信息Uncaught ReferenceError: localMessage is not defined
+        */
+        //alert(localVariable);
+
+        //声明一个全局变量Globalvariable,不使用var关键字
+        //alert(globalVariable); JS会根据执行顺序初始化变量
+        //局部作用域的全局变量并不会过早的出现
+        function TestTwo() {
+            globalVariable = "Hi,I am globalVariable";
+        }
+        TestTwo();
+        //一个函数执行后中的全局变量没有被回收
+        alert(globalVariable);
+    </script>
+
+</body>
+
+</html>

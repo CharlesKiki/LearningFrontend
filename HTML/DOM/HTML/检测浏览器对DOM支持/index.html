@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM标准支持度</title>
+</head>
+
+<body>
+
+    <script>
+    var dom = "HTML";//指定DOM模块
+    var ver = "1.0";//指定DOM级别
+    if(document.implementation)
+    {
+       //如果浏览器支持implementation对象，则进行下一步测试
+       if(document.implementation.hasFeature(dom,ver))
+       {
+           //检测指定DOM模块及版本的支持情况
+           alert("支持：\n"+ dom + " " + ver);
+       }
+       else
+       {
+           alert("不支持：\n"+ dom + " " + ver);
+       }
+    }
+    else
+    {
+       alert("不支持：\n DOMImplementation对象");
+    }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>命令行模式</title>
+</head>
+
+<body>
+    <script>
+        //利用闭包构造沙箱，不能从外部得到内部变量 这有点类似利用租用与来构造的一个私有对象
+        (function () {
+            var CarManager = {
+                requestInfo: function (model, id) {
+                    return "The information for " + model + " with ID " + id + " is foobar";
+                },
+                buyVehicle: function (model, id) {
+                    return "You have successfully purchased Item " + id + ", a " + model;
+                },
+                arrangeViewing: function (model, id) {
+                    return "You have successfully booked a viewing of " + model + " ( " + id + ") ";
+                }
+            };
+            //执行方法？
+            /*
+                1.关于参数：
+                    非常有意思的一点，JS的所有参数都是通过arguments对象来保存的，就算显式的声明了参数数目
+                仍然可以传入更多的参数
+                2.关于返回值：
+                    因为JS是动态语言，所以在return中甚至可以返回一个Array对象！
+            */
+            CarManager.execute = function (name) {
+                return CarManager[name] && CarManager[name].apply(CarManager, [].slice.call(arguments, 1));
+            };
+
+            //模拟了输入方法名 然后输入了相对应的参数
+            console.log(CarManager.execute("arrangeViewing", "Ferrari", "14523"));
+            console.log(CarManager.execute("requestInfo", "Ford Mondeo", "54323"));
+            console.log(CarManager.execute("buyVehicle", "Ford Escort", "34232"));
+        })();
+    </script>
+</body>
+
+</html>

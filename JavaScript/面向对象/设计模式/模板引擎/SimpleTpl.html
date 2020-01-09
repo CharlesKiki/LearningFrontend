@@ -1,0 +1,22 @@
+<html>
+
+<body>
+    <script type="text/javascript">
+    /* 
+        一个简单的模板引擎使用一个自定的标签，例如<%name%>来替换指定部分的内容。
+     */
+        var tplEngine = function (tpl, data) {
+            var re = /<%([^%>]+)?%>/g;
+            while (match = re.exec(tpl)) {
+                tpl = tpl.replace(match[0], data[match[1]]);
+            }
+            return tpl;
+        };
+        //测试
+        var template1 = '<p>Hello, my name is <%name%>. I\'m <%age%> years old.</p>';
+        console.log(tplEngine(template1, { name: "Tom", age: 29 }));
+    </script>
+
+</body>
+
+</html>
