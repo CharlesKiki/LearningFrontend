@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <!-- C语言中的int类型的赋值是深拷贝 -->
+<head>
+    <title>Dynamic Properties Example 2</title>
+    <script type="text/javascript">
+        //字符串类型和Object类型不同
+        var name = "Nicholas";
+        //尽管不会报错，但是不能给基本类型添加属性
+        name.age = 27;
+        alert(name.age);    //undefined
+
+        //基本类型的赋值是深拷贝
+        var testVarOne = 10;
+        var testVarTwo = testVarOne;
+        testVarTwo = testVarTwo - 5;
+        alert("here is test one " + testVarOne);
+        alert("here is test two " + testVarTwo);
+
+
+        //注意，Object引用类型的赋值仅仅是引用，多个
+        //变量共享一个对象，浅拷贝
+        var objectOne = new Object();
+        var ObjectTwo = objectOne;
+        objectOne.name = "I am test one";
+        alert(ObjectTwo.name);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

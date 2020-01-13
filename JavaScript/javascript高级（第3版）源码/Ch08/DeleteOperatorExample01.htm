@@ -4,10 +4,18 @@
     <title>Delete Operator Example</title>
 </head>
 <body>
+    <!-- 虽然Script标签在HTML标签之下，但是它仍然先执行 -->
     <p>Hello world!</p>
     <script type="text/javascript">
 
+        /*
+            Window对象是BOM的核心，该对象定义了JS怎么操作浏览器
+            它是浏览器的实例，是JS访问浏览器的接口
+        */
+
+        //这是声明了一个全局变量，无法被delete删除
         var age = 29;
+        //这是声明了一个window对象的属性，可以被delete
         window.color = "red";
         
         //throws an error in IE < 9, returns false in all other browsers
@@ -19,6 +27,17 @@
         alert(window.age);      //29
         alert(window.color);    //undefined
 
+
+        //如何确认一个对象到底存在不存在？
+        //var newValue = oldValue;  //该方法直接报错
+        //alert(newValue);
+
+        //这相当于一次属性查询
+        var newValue = window.oldValue;
+        alert(newValue);            //undefined
+
+        //属性查询和引用一个未定义触发错误是不同的
+        //触发错误会导致代码执行终端
     </script>
 </body>
 </html>

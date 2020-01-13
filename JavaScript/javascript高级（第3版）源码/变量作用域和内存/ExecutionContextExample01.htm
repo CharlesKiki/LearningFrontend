@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Execution Context Example 1</title>
+    <script type="text/javascript">
+        //一个环境实际上与之关联一个对象，隐式的存在
+        //以下的函数和变量都是作为window对象而存在的
+
+        //这是一个全局变量
+        var color = "blue";
+
+        //这是一个全局函数，它不接受参数
+        //但是它自身有一个隐式的对象，arguments对象
+        //它可以访问全局变量
+        function changeColor() {
+            if (color === "blue") {
+                color = "red";
+            } else {
+                color = "blue";
+            }
+        }
+
+        /*
+            函数有自己的执行环境。这意味着函数的执行会导致它的执行环境
+            被压入环境栈中，执行的结束意味着出栈，这也是控制前的交换
+
+            作用域链是一种和执行环境，引用对象，以及类似冒泡机制的
+            执行顺序问题，它的结果就是导致了一种对象引用
+
+            作用域区分开始和结尾，开始是当前环境，或者如果是函数，
+            那么就是 活动对象？ 
+
+
+            argument对象在全局是不存在的
+            window对象在关闭网页或者浏览器才会销毁
+        */
+        changeColor();
+
+        alert("Color is now " + color);
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

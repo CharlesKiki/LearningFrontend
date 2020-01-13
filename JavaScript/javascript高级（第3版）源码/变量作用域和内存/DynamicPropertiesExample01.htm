@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 变量是动态的，对象是动态的，但是这种动态也是有区别的 -->
+<head>
+    <title>Dynamic Properties Example 1</title>
+    <script type="text/javascript">
+        //创建一个新的变量并且使用引用类型的变量去保存它
+        var person = new Object();
+        //为给这变量添加一个成员
+        person.name = "Nicholas";
+        //该对象不销毁或者属性不删除，则永远存在
+        alert(person.name);    //"Nicholas"
+    </script>
+</head>
+<!-- 联想：在C语言中，对用一个变量给另一个赋值得到的是新的内存 -->
+<body>
+
+</body>
+
+</html>

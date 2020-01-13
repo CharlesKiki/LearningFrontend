@@ -3,15 +3,31 @@
 <head>
     <title>Execution Context Example 2</title>
     <script type="text/javascript">
-          
+        /*
+            作用域链的最后一个总是Window，每次往后一个，就是一个
+            新的作用域链，从内到外
+
+            线性的，只能从内到外，从外，就只能在当前的一层
+            
+        */
+
+
+        //一个普通的全局执行环境
         var color = "blue";
         
+        //一个函数执行环境
         function changeColor(){
             var anotherColor = "red";
         
+            //一个局部环境执行环境中的执行环境
+            //如果它在自己的变量中找不到变量
+            //就会向上寻找
             function swapColors(){
+                //自己的局部的变量
                 var tempColor = anotherColor;
+                //另一个局部的变量
                 anotherColor = color;
+                //全局的变量
                 color = tempColor;
                 
                 //color, anotherColor, and tempColor are all accessible here
