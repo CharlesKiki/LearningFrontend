@@ -11,3 +11,4 @@
 troubleshooting：
 npm命令执行错误检查node是否安装正常，package.json是否正确。
 gulp命令执行错误，检查gulpfile.js配置文件是否正确。
+
