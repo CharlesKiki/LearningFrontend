@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>创建日期对象</title>
+<script>
+var now=new Date();    //以现在时间定义日期对象
+var nationalDay=new Date(2011,10,1,0,0,0);   //以2011年国庆节定义日期对象
+var msel=nationalDay-now    //相差毫秒数
+//输出相差时间
+document.write("距离2011年国庆节还有："+msel+"毫秒<br>");
+document.write("距离2011年国庆节还有："+parseInt(msel/1000)+"秒<br>");
+document.write("距离2011年国庆节还有："+parseInt(msel/(60*1000))+"分钟<br>");
+document.write("距离2011年国庆节还有："+parseInt(msel/(60*60*1000))+"小时<br>");
+document.write("距离2011年国庆节还有："+parseInt(msel/(24*60*60*1000))+"天<br>");
+</script>
+</head>
+<body>
+</body>
+</html>
